@@ -1,0 +1,18 @@
+<form class="example-form" [formGroup]="formulario" (ngSubmit)="salvar()">
+  <mat-form-field class="example-full-width" style="text-align:center">
+      <input matInput formControlName="nome" placeholder="Nome do Dentista" [(ngModel)]="dentista.nome">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" style="text-align:center">
+        <input matInput formControlName="cpf" placeholder="CPF do Dentista" [(ngModel)]="dentista.cpf">
+      </mat-form-field>
+<mat-form-field class="example-full-width" style="text-align:center">
+  <input matInput formControlName="especialidade" placeholder="Especialidade do Dentista" [(ngModel)]="dentista.especialidade">
+</mat-form-field>
+</form>
+<div class="example-button-row" style="text-align:right">
+  <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+  {{' '}}
+  <button mat-raised-button color="primary">Editar</button>
+  {{' '}}
+  <button mat-raised-button color="primary">Excluir</button>
+</div>
