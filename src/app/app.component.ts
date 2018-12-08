@@ -21,6 +21,6 @@ export class AppComponent {
     this.router.navigate(['cadastroAtendimento']);
   }
   LogListaAtendimento(){
-
+    this.router.navigate(['listagemAtendimento']);
   }
 }

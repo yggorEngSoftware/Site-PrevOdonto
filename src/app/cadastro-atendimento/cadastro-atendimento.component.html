@@ -1,24 +1,53 @@
-<form class="example-form">
+<div> 
+<form class="example-form" [formGroup]="formulario" (ngSubmit)="salvar()">
+    <div class="message" style="text-align:center" *ngIf="exibeMsg">
+        {{ message }}
+        </div>        
   <mat-form-field class="example-full-width" style="text-align:center">
-      <input matInput placeholder="Nome do cliente" value="José da Silva">
-    </mat-form-field>
-    <mat-form-field class="example-full-width" style="text-align:center">
-        <input matInput placeholder="Nome do Dentista" value="Fernando Oliveira">
-      </mat-form-field>
-<mat-form-field class="example-full-width" style="text-align:center">
-  <input matInput placeholder="Data e Hora do Atendimento" value="20/11/2018 14:30">
-</mat-form-field>
-<mat-form-field class="example-full-width" style="text-align:center">
-  <input matInput placeholder="Serviço a ser realizado" value="Manutenção ortodôntica">
-</mat-form-field>
-<mat-form-field class="example-full-width" style="text-align:center">
-    <input matInput placeholder="Estado do paciente" value="Pendente para atendimento">
+    <mat-select placeholder="Cliente" formControlName="clienteId" [(ngModel)]="atendimento.clienteId">
+      <mat-option>Selecione</mat-option>
+      <mat-option *ngFor="let clien of client" [value]="clien.id">{{clien.nome}}</mat-option>
+    </mat-select>
   </mat-form-field>
+  <mat-form-field class="example-full-width" style="text-align:center">
+    <mat-select placeholder="Dentista" formControlName="dentistaId" [(ngModel)]="atendimento.dentistaId">
+      <mat-option>Selecione</mat-option>
+      <mat-option *ngFor="let dentista of dentistas" [value]="dentista.id">{{dentista.nome}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" style="text-align:center">
+    <input matInput formControlName="dataAtendimento" placeholder="Data e Hora do Atendimento" [(ngModel)]="atendimento.dataAtendimento">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" style="text-align:center">
+    <input matInput formControlName="servico" placeholder="Serviço a ser realizado" [(ngModel)]="atendimento.servico">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" style="text-align:center">
+    <mat-select placeholder="Estado do Paciente" formControlName="estado" [(ngModel)]="atendimento.estado">
+      <mat-option *ngFor="let estado of estados" [value]="estado.valor">
+        {{estado.viewValor}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" style="text-align:center">
+    <mat-select placeholder="Selecione um Atendimento Para Editar ou Excluir" formControlName="atendimentoEdit" [(ngModel)]="atendi">
+      <mat-option>Selecione</mat-option>
+      <mat-option *ngFor="let aten of atendimentoEdit" [value]="aten">{{aten.dataAtendimento}} {{aten.nomeCliente}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
 </form>
+</div>
 <div class="example-button-row" style="text-align:right">
-  <button mat-raised-button color="primary">Salvar</button>
+  <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
   {{' '}}
-  <button mat-raised-button color="primary">Editar</button>
+  <button mat-raised-button class="botaoAmarelo" (click)="editar()">Editar</button>
   {{' '}}
-  <button mat-raised-button color="primary">Excluir</button>
+  <button mat-raised-button class="botaoVermelho" (click)="setCheckin()">Realizar Chek-In</button>
+  {{' '}}
+  <button mat-raised-button class="botaoVerde" (click)="setEmAtendimento()">Iniciar Atendimento</button>
+  {{' '}}
+  <button mat-raised-button class="botaoRoxo" (click)="setAtrasado()">Cliente Atrasado</button>
+  {{' '}}
+  <button mat-raised-button color="warn" (click)="excluir()">Excluir</button>
 </div>

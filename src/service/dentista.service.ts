@@ -17,4 +17,12 @@ export class DentistaService{
     
      return this.http.post(`${this.API}`, d);
  }
+ 
+ editarDentista(id: String, dent: Dentista){
+    return this.http.put(`${this.API}/${id}`, dent);
+}
+
+excluirDentista(id: String){
+    return this.http.delete(`${this.API}/${id}`);
+}
 }

@@ -1,0 +1,6 @@
+h1{
+    font-family: Arial, Helvetica, sans-serif
+}
+.div-fundo-verde{
+    background-image: linear-gradient(to bottom, #19f040, #6ef572, #9cfa9d, #c4fdc4, #eaffea);
+}

@@ -15,15 +15,7 @@ export class CadastroClienteComponent implements OnInit {
   client: Cliente[];
   cli = new Cliente();
   constructor(private service: ClienteService, private formBuilder: FormBuilder) { }
-  clientes: string[] = [
-    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
-    'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-    'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-    'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico',
-    'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-    'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-    'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-  ];
+  
   onSubmit() {
     console.log(this.formulario.value);
 
@@ -42,6 +34,13 @@ export class CadastroClienteComponent implements OnInit {
     console.log(this.formulario.value);
     console.log(this.cliente);
     this.service.salvarCliente(this.cliente).subscribe(console.log);
+  }
+  editar(){
+    
+    this.service.editarCliente(this.cli.id , this.cliente).subscribe(console.log);
+  }
+  excluir() {
+    this.service.excluirCliente(this.cli.id).subscribe(console.log);
   }
 
 }

@@ -14,7 +14,14 @@ export class ClienteService{
      return this.http.get<Cliente[]>(`${this.API}`);
  }
  salvarCliente(c: Cliente){
-    
      return this.http.post(`${this.API}`, c);
+ }
+
+ editarCliente(id: String, cli: Cliente){
+     return this.http.put(`${this.API}/${id}`, cli);
+ }
+ 
+ excluirCliente(id: String){
+     return this.http.delete(`${this.API}/${id}`);
  }
 }

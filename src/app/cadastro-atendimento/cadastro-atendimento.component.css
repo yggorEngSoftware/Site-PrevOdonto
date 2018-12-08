@@ -5,5 +5,27 @@
   }
   
   .example-full-width {
-    width: 280%;
+    width: 270%;
   }
+  .botaoAmarelo{
+    color: white;
+    background-color: orange;
+}
+.botaoRoxo{
+  background-color:#B89AF9;
+}
+.botaoVerde{
+  color: white;
+  background-color:darkgreen;
+}
+.botaoVermelho{
+  color: white;
+  background-color: firebrick;
+}
+.message {
+    background: #e5e5e5;
+    color: #000;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 1.1em;
+}

@@ -1,0 +1,31 @@
+<div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+  
+  <ng-container matColumnDef="dataAtendimento" >
+    <mat-header-cell *matHeaderCellDef> Horário de Atendimento </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.dataAtendimento}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="servico">
+    <mat-header-cell *matHeaderCellDef> Serviço </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.servico}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="estadoString" >
+    <mat-header-cell *matHeaderCellDef> Estado do Paciente </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.estadoString}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="nomeCliente">
+    <mat-header-cell *matHeaderCellDef> Nome do Cliente </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.nomeCliente}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nomeDentista">
+    <mat-header-cell *matHeaderCellDef> Nome do Dentista </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.nomeDentista}}
+  </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>
+</div>

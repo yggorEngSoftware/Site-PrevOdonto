@@ -14,6 +14,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DentistaService } from 'src/service/dentista.service';
 import {MatSelectModule} from '@angular/material/select';
+import { AtendimentoService } from 'src/service/atendimento.service';
+import { ListagemAtendimentoComponent } from './listagem-atendimento/listagem-atendimento.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 
 @NgModule({
@@ -21,7 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
     AppComponent,
     CadastroClienteComponent,
     CadastroDentistaComponent,
-    CadastroAtendimentoComponent
+    CadastroAtendimentoComponent,
+    ListagemAtendimentoComponent
   ],
   imports: [
     BrowserModule,
@@ -33,10 +39,12 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatDatepickerModule
   ],
   providers: [ClienteService,
-    DentistaService],
+    DentistaService, AtendimentoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
